@@ -1,0 +1,5 @@
+guard 'cucumber' do
+  watch(%r{^lib/.+\.rb$}) { 'features' }
+  watch(%r{^features/.+\.feature$})
+  watch(%r{^features/(support|step_definitions)/.+$}) { 'features' }
+end

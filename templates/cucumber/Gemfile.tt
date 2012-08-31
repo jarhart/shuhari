@@ -1,0 +1,10 @@
+source :rubygems
+
+group :development do
+  gem 'cucumber'
+  gem 'rspec'
+  gem 'guard-cucumber'
+  gem 'coolline', :require => false
+
+  <%= platform_gems %>
+end

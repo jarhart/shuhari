@@ -1,0 +1,9 @@
+source :rubygems
+
+group :development do
+  gem 'rspec'
+  gem 'guard-rspec'
+  gem 'coolline', :require => false
+
+  <%= platform_gems %>
+end
