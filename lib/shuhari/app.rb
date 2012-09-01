@@ -6,23 +6,23 @@ module Shuhari
     include Thor::Actions
     include ProjectGeneration
 
-    desc 'new [NAME]', 'create a new Kata project'
+    desc 'new [NAME]', 'Create a new Kata project'
 
     method_option :rspec, :type => :boolean, :aliases => '-r',
-      :desc => 'test using RSpec', :default => true
+      :desc => 'Test using RSpec', :default => true
 
     method_option :minitest, :type => :boolean, :aliases => '-m',
-      :desc => 'test using minitest'
+      :desc => 'Test using minitest'
 
     method_option :testunit, :type => :boolean, :aliases => '-t',
-      :desc => 'test using Test::Unit'
+      :desc => 'Test using Test::Unit'
 
     method_option :cucumber, :type => :boolean, :aliases => '-c',
-      :desc => 'test using Cucumber'
+      :desc => 'Test using Cucumber'
 
     if Platform.unix?
       method_option :gemset, :type => :boolean, :aliases => '-g',
-        :desc => 'install gems in a gemset and create .rvmrc'
+        :desc => 'Install gems in a gemset and create .rvmrc'
     end
 
     def new(name=nil)
@@ -34,7 +34,7 @@ module Shuhari
       end
     end
 
-    desc 'empty', 'restart the Kata with empty mind and project'
+    desc 'empty', 'Restart the Kata with empty mind and project'
     def empty
       @name = load_setting(:project_name)
       @framework = load_setting(:test_framework)
