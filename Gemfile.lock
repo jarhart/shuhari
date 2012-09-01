@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     shuhari (0.0.1)
-      thor
+      thor (~> 0.14)
 
 GEM
   remote: https://rubygems.org/

@@ -15,5 +15,5 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Shuhari::VERSION
 
-  gem.add_dependency "thor"
+  gem.add_dependency "thor", "~> 0.14"
 end
