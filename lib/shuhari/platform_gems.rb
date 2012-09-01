@@ -6,13 +6,19 @@ module Shuhari
     protected
 
     def osx_gems
+      unix_gems +
       [ "gem 'growl'",
         "# gem 'growl_notify'",
         "# gem 'ruby_gntp'" ]
     end
 
     def linux_gems
+      unix_gems +
       [ "gem 'libnotify'" ]
+    end
+
+    def unix_gems
+      [ "gem 'coolline', :require => false" ]
     end
 
     def windows_gems
