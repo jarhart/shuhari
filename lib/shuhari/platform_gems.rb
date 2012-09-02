@@ -14,7 +14,8 @@ module Shuhari
 
     def linux_gems
       unix_gems +
-      [ "gem 'libnotify'" ]
+      [ "gem 'libnotify'",
+        "gem 'rb-inotify'" ]
     end
 
     def unix_gems
@@ -23,7 +24,8 @@ module Shuhari
 
     def windows_gems
       [ "gem 'rb-notifu'",
-        "gem 'win32console'" ]
+        "gem 'win32console'",
+        "gem 'wdm'" ]
     end
 
     def platform_gems
