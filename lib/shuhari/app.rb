@@ -25,7 +25,7 @@ module Shuhari
 
     if Platform.unix?
       method_option :gemset, :type => :boolean, :aliases => '-g',
-        :desc => 'Create .rvmrc to use a gemset'
+        :desc => 'Create .rvmrc to use a gemset', :default => Platform.rvm?
     end
 
     def new(name=nil)

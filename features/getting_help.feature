@@ -25,6 +25,7 @@ Feature: Getting Help
         -t, [--testunit]       # Test using Test::Unit
         -c, [--cucumber]       # Test using Cucumber
         -g, [--gemset]         # Create .rvmrc to use a gemset
+                               # Default: true
 
       Create a new Kata project
       """

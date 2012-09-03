@@ -5,6 +5,10 @@ module Shuhari
 
     module_function
 
+    def rvm?
+      !`which rvm`.empty?
+    end
+
     def unix?
       osx? or linux?
     end
