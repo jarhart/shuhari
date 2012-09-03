@@ -1,6 +1,6 @@
 # Shuhari
 
-Shuhari generates new projects to for doing TDD Kata.
+Shuhari generates new projects for doing TDD Kata.
 
 ## Installation
 

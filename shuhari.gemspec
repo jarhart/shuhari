@@ -4,8 +4,8 @@ require File.expand_path('../lib/shuhari/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Jason Arhart"]
   gem.email         = ["jarhart@gmail.com"]
-  gem.description   = %q{TDD Kata project generator}
-  gem.summary       = %q{Shuhari generates new projects to for doing TDD Kata.}
+  gem.description   = %q{Shuhari generates new projects for doing TDD Kata.}
+  gem.summary       = %q{TDD Kata project generator}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)
