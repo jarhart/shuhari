@@ -1,0 +1,11 @@
+<%
+std_opts = '--format progress'
+
+platform_opts = case RUBY_PLATFORM
+                when /darwin/ then '--tags ~@linux --tags ~@windows'
+                when /linux/ then '--tags ~@osx --tags ~@windows'
+                when /win32/, /mingw32/ then '--tags ~@osx --tags ~@linux'
+                else '--tags ~@osx --tags ~@linux --tags ~@windows'
+                end
+%>
+default: <%= std_opts %> <%= platform_opts %>
