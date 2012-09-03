@@ -9,7 +9,8 @@ module Shuhari
       unix_gems +
       [ "gem 'growl'",
         "# gem 'growl_notify'",
-        "# gem 'ruby_gntp'" ]
+        "# gem 'ruby_gntp'",
+        "gem 'rb-fsevent'" ]
     end
 
     def linux_gems
