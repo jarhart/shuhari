@@ -30,6 +30,8 @@ module Shuhari
       template 'test_kata.rb.tt', "test_#{snake_name}.rb"
     end
 
+    alias_method :setup_minitest_spec, :setup_rspec
+
     def setup_testunit
       template 'test_helper.rb.tt'
       template 'kata_test.rb.tt', "#{snake_name}_test.rb"
@@ -47,7 +49,7 @@ module Shuhari
 
     def test_directory
       case framework
-      when 'rspec' then 'spec'
+      when 'rspec', 'minitest_spec' then 'spec'
       when 'cucumber' then 'features'
       else 'test'
       end

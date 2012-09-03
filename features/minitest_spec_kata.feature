@@ -1,20 +1,20 @@
-Feature: Minitest Kata Generation
+Feature: Minitest::Spec Kata Generation
 
   Scenario: All Platforms
-    When I run `shuhari new FizzBuzz --minitest`
+    When I run `shuhari new FizzBuzz --minitest_spec`
     Then a directory named "fizz_buzz" should exist
     And the following files should exist:
       |fizz_buzz/Gemfile                |
       |fizz_buzz/Guardfile              |
       |fizz_buzz/lib/fizz_buzz.rb       |
-      |fizz_buzz/test/test_helper.rb    |
-      |fizz_buzz/test/test_fizz_buzz.rb |
+      |fizz_buzz/spec/spec_helper.rb    |
+      |fizz_buzz/spec/fizz_buzz_spec.rb |
       |fizz_buzz/shuhari.yml            |
-    And the file "fizz_buzz/test/test_fizz_buzz.rb" should contain:
+    And the file "fizz_buzz/spec/fizz_buzz_spec.rb" should contain:
       """
-      require File.expand_path('test_helper', File.dirname(__FILE__))
+      require File.expand_path('spec_helper', File.dirname(__FILE__))
 
-      class TestFizzBuzz < MiniTest::Unit::TestCase
+      describe FizzBuzz do
       end
       """
     And the file "fizz_buzz/lib/fizz_buzz.rb" should contain:
@@ -22,7 +22,7 @@ Feature: Minitest Kata Generation
       class FizzBuzz
       end
       """
-    And the file "fizz_buzz/test/test_helper.rb" should contain:
+    And the file "fizz_buzz/spec/spec_helper.rb" should contain:
       """
       $LOAD_PATH.unshift File.expand_path('../lib', File.dirname(__FILE__))
 
@@ -33,20 +33,20 @@ Feature: Minitest Kata Generation
     And the file "fizz_buzz/Guardfile" should contain:
       """
       guard 'minitest' do
-        watch(%r|^test/test_(.*)\.rb|)
-        watch(%r|^lib/(.*)\.rb|)            { |m| "test/test_#{m[1]}.rb" }
-        watch(%r|^test/test_helper\.rb|)    { "test" }
+        watch(%r|^spec/(.*)_spec\.rb|)
+        watch(%r|^lib/(.*)\.rb|)            { |m| "spec/#{m[1]}_spec.rb" }
+        watch(%r|^spec/spec_helper\.rb|)    { "spec" }
       end
       """
     And the file "fizz_buzz/shuhari.yml" should contain:
       """
       project_name: FizzBuzz
-      test_framework: minitest
+      test_framework: minitest_spec
       """
 
   @osx
   Scenario: OS X
-    When I run `shuhari new FizzBuzz --minitest`
+    When I run `shuhari new FizzBuzz --minitest_spec`
     Then the file "fizz_buzz/Gemfile" should contain:
       """
       group :development do
@@ -62,7 +62,7 @@ Feature: Minitest Kata Generation
 
   @linux
   Scenario: Linux
-    When I run `shuhari new FizzBuzz --minitest`
+    When I run `shuhari new FizzBuzz --minitest_spec`
     Then the file "fizz_buzz/Gemfile" should contain:
       """
       group :development do
@@ -76,7 +76,7 @@ Feature: Minitest Kata Generation
 
   @windows
   Scenario: Windows
-    When I run `shuhari new FizzBuzz --minitest`
+    When I run `shuhari new FizzBuzz --minitest_spec`
     Then the file "fizz_buzz/Gemfile" should contain:
       """
       group :development do

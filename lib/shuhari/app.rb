@@ -12,7 +12,10 @@ module Shuhari
       :desc => 'Test using RSpec', :default => true
 
     method_option :minitest, :type => :boolean, :aliases => '-m',
-      :desc => 'Test using minitest'
+      :desc => 'Test using Minitest::Unit'
+
+    method_option :minitest_spec, :type => :boolean, :aliases => '-s',
+      :desc => 'Test using Minitest::Spec'
 
     method_option :testunit, :type => :boolean, :aliases => '-t',
       :desc => 'Test using Test::Unit'
@@ -22,7 +25,7 @@ module Shuhari
 
     if Platform.unix?
       method_option :gemset, :type => :boolean, :aliases => '-g',
-        :desc => 'Install gems in a gemset and create .rvmrc'
+        :desc => 'Create .rvmrc to use a gemset'
     end
 
     def new(name=nil)
@@ -72,8 +75,9 @@ module Shuhari
     end
 
     def framework
-      @framework ||=
-        %w( minitest testunit cucumber rspec ).find { |f| options[f.to_sym] }
+      @framework ||= %w(
+        minitest minitest_spec testunit cucumber rspec
+      ).find { |f| options[f.to_sym] }
     end
 
     def gemset

@@ -18,12 +18,13 @@ Feature: Getting Help
         shuhari new [NAME]
 
       Options:
-        -r, [--rspec]     # Test using RSpec
-                          # Default: true
-        -m, [--minitest]  # Test using minitest
-        -t, [--testunit]  # Test using Test::Unit
-        -c, [--cucumber]  # Test using Cucumber
-        -g, [--gemset]    # Install gems in a gemset and create .rvmrc
+        -r, [--rspec]          # Test using RSpec
+                               # Default: true
+        -m, [--minitest]       # Test using Minitest::Unit
+        -s, [--minitest-spec]  # Test using Minitest::Spec
+        -t, [--testunit]       # Test using Test::Unit
+        -c, [--cucumber]       # Test using Cucumber
+        -g, [--gemset]         # Create .rvmrc to use a gemset
 
       Create a new Kata project
       """

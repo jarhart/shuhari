@@ -1,0 +1,7 @@
+source :rubygems
+
+group :development do
+  gem 'minitest'
+  gem 'guard-minitest'
+  <%= platform_gems %>
+end
