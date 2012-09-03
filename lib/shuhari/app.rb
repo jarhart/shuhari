@@ -67,6 +67,10 @@ module Shuhari
       @snake_name ||= Util.snake_case(name)
     end
 
+    def human_name
+      @human_name ||= snake_name.split('_').map { |i| i.capitalize }.join(' ')
+    end
+
     def framework
       @framework ||=
         %w( minitest testunit cucumber rspec ).find { |f| options[f.to_sym] }

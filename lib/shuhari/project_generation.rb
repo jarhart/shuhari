@@ -38,6 +38,7 @@ module Shuhari
     def setup_cucumber
       inside('support') { template 'env.rb.tt' }
       directory 'step_definitions'
+      template 'kata.feature.tt', "#{snake_name}.feature"
     end
 
     def clean_project
