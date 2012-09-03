@@ -22,6 +22,8 @@ Feature: Cucumber Kata Generation
       """
     And the file "fizz_buzz/features/support/env.rb" should contain:
       """
+      $LOAD_PATH.unshift File.expand_path('../../lib', File.dirname(__FILE__))
+      
       require 'fizz_buzz'
       require 'rspec/expectations'
       """
