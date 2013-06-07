@@ -1,41 +1,19 @@
 require 'shuhari'
+require 'erb'
 
 module Shuhari
   module PlatformGems
+    include Platform
+
+    TEMPLATES = File.expand_path('../../templates', File.dirname(__FILE__))
+    TEMPLATE_FILE = File.expand_path('platform_gems.erb', TEMPLATES)
 
     protected
 
-    def osx_gems
-      unix_gems +
-      [ "gem 'growl'",
-        "# gem 'growl_notify'",
-        "# gem 'ruby_gntp'",
-        "gem 'rb-fsevent'" ]
-    end
-
-    def linux_gems
-      unix_gems +
-      [ "gem 'libnotify'",
-        "gem 'rb-inotify'" ]
-    end
-
-    def unix_gems
-      [ "gem 'coolline', :require => false" ]
-    end
-
-    def windows_gems
-      [ "gem 'rb-notifu'",
-        "gem 'win32console'",
-        "gem 'wdm'" ]
-    end
-
     def platform_gems
-      case Platform.os
-      when :osx then osx_gems
-      when :linux then linux_gems
-      when :windows then windows_gems
-      else []
-      end.join "\n  "
+      b = binding
+      erb = ERB.new(File.read(TEMPLATE_FILE))
+      erb.result(b).strip
     end
   end
 end

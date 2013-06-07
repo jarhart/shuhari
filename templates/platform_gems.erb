@@ -1,0 +1,15 @@
+<% if osx? %>
+  gem 'coolline', :require => false
+  gem 'growl'
+  # gem 'growl_notify'
+  # gem 'ruby_gntp'
+  gem 'rb-fsevent'
+<% elsif linux? %>
+  gem 'coolline', :require => false
+  gem 'libnotify'
+  gem 'rb-inotify'
+<% elsif windows? %>
+  gem 'rb-notifu'
+  gem 'win32console'
+  gem 'wdm'
+<% end %>
