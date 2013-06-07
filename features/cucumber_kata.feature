@@ -23,7 +23,7 @@ Feature: Cucumber Kata Generation
     And the file "fizz_buzz/features/support/env.rb" should contain:
       """
       $LOAD_PATH.unshift File.expand_path('../../lib', File.dirname(__FILE__))
-      
+
       require 'fizz_buzz'
       require 'rspec/expectations'
       """
@@ -46,6 +46,8 @@ Feature: Cucumber Kata Generation
     When I run `shuhari new FizzBuzz --cucumber`
     Then the file "fizz_buzz/Gemfile" should contain:
       """
+      source 'https://rubygems.org'
+
       group :development do
         gem 'cucumber'
         gem 'rspec'
@@ -54,6 +56,7 @@ Feature: Cucumber Kata Generation
         gem 'growl'
         # gem 'growl_notify'
         # gem 'ruby_gntp'
+        # gem 'terminal-notifier-guard'
         gem 'rb-fsevent'
       end
       """
@@ -63,12 +66,15 @@ Feature: Cucumber Kata Generation
     When I run `shuhari new FizzBuzz --cucumber`
     Then the file "fizz_buzz/Gemfile" should contain:
       """
+      source 'https://rubygems.org'
+
       group :development do
         gem 'cucumber'
         gem 'rspec'
         gem 'guard-cucumber'
         gem 'coolline', :require => false
         gem 'libnotify'
+        # gem 'ruby_gntp'
         gem 'rb-inotify'
       end
       """
@@ -78,12 +84,15 @@ Feature: Cucumber Kata Generation
     When I run `shuhari new FizzBuzz --cucumber`
     Then the file "fizz_buzz/Gemfile" should contain:
       """
+      source 'https://rubygems.org'
+
       group :development do
         gem 'cucumber'
         gem 'rspec'
         gem 'guard-cucumber'
         gem 'rb-notifu'
         gem 'win32console'
+        # gem 'ruby_gntp'
         gem 'wdm'
       end
       """

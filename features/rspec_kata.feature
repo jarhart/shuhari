@@ -62,6 +62,8 @@ Feature: RSpec Kata Generation
     When I run `shuhari new FizzBuzz --rspec`
     Then the file "fizz_buzz/Gemfile" should contain:
       """
+      source 'https://rubygems.org'
+
       group :development do
         gem 'rspec'
         gem 'guard-rspec'
@@ -69,6 +71,7 @@ Feature: RSpec Kata Generation
         gem 'growl'
         # gem 'growl_notify'
         # gem 'ruby_gntp'
+        # gem 'terminal-notifier-guard'
         gem 'rb-fsevent'
       end
       """
@@ -78,11 +81,14 @@ Feature: RSpec Kata Generation
     When I run `shuhari new FizzBuzz --rspec`
     Then the file "fizz_buzz/Gemfile" should contain:
       """
+      source 'https://rubygems.org'
+
       group :development do
         gem 'rspec'
         gem 'guard-rspec'
         gem 'coolline', :require => false
         gem 'libnotify'
+        # gem 'ruby_gntp'
         gem 'rb-inotify'
       end
       """
@@ -92,11 +98,14 @@ Feature: RSpec Kata Generation
     When I run `shuhari new FizzBuzz --rspec`
     Then the file "fizz_buzz/Gemfile" should contain:
       """
+      source 'https://rubygems.org'
+
       group :development do
         gem 'rspec'
         gem 'guard-rspec'
         gem 'rb-notifu'
         gem 'win32console'
+        # gem 'ruby_gntp'
         gem 'wdm'
       end
       """

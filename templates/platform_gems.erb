@@ -3,13 +3,16 @@
   gem 'growl'
   # gem 'growl_notify'
   # gem 'ruby_gntp'
+  # gem 'terminal-notifier-guard'
   gem 'rb-fsevent'
 <% elsif linux? %>
   gem 'coolline', :require => false
   gem 'libnotify'
+  # gem 'ruby_gntp'
   gem 'rb-inotify'
 <% elsif windows? %>
   gem 'rb-notifu'
   gem 'win32console'
+  # gem 'ruby_gntp'
   gem 'wdm'
 <% end %>

@@ -49,6 +49,8 @@ Feature: Minitest::Spec Kata Generation
     When I run `shuhari new FizzBuzz --minitest_spec`
     Then the file "fizz_buzz/Gemfile" should contain:
       """
+      source 'https://rubygems.org'
+
       group :development do
         gem 'minitest'
         gem 'guard-minitest'
@@ -56,6 +58,7 @@ Feature: Minitest::Spec Kata Generation
         gem 'growl'
         # gem 'growl_notify'
         # gem 'ruby_gntp'
+        # gem 'terminal-notifier-guard'
         gem 'rb-fsevent'
       end
       """
@@ -65,11 +68,14 @@ Feature: Minitest::Spec Kata Generation
     When I run `shuhari new FizzBuzz --minitest_spec`
     Then the file "fizz_buzz/Gemfile" should contain:
       """
+      source 'https://rubygems.org'
+
       group :development do
         gem 'minitest'
         gem 'guard-minitest'
         gem 'coolline', :require => false
         gem 'libnotify'
+        # gem 'ruby_gntp'
         gem 'rb-inotify'
       end
       """
@@ -79,11 +85,14 @@ Feature: Minitest::Spec Kata Generation
     When I run `shuhari new FizzBuzz --minitest_spec`
     Then the file "fizz_buzz/Gemfile" should contain:
       """
+      source 'https://rubygems.org'
+
       group :development do
         gem 'minitest'
         gem 'guard-minitest'
         gem 'rb-notifu'
         gem 'win32console'
+        # gem 'ruby_gntp'
         gem 'wdm'
       end
       """
