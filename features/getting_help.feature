@@ -4,10 +4,10 @@ Feature: Getting Help
     When I run `shuhari help`
     Then the output should contain:
       """
-      Tasks:
-        shuhari empty        # Restart the Kata with empty mind and project
-        shuhari help [TASK]  # Describe available tasks or one specific task
-        shuhari new [NAME]   # Create a new Kata project
+      Commands:
+        shuhari empty           # Restart the Kata with empty mind and project
+        shuhari help [COMMAND]  # Describe available commands or one specific command
+        shuhari new [NAME]      # Create a new Kata project
       """
 
   Scenario: Help about the "new" task
