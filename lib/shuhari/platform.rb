@@ -21,6 +21,10 @@ module Shuhari
       os == :linux
     end
 
+    def windows?
+      os == :windows
+    end
+
     def os
       @os ||= case RUBY_PLATFORM
               when /darwin/ then :osx
