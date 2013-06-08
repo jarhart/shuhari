@@ -45,7 +45,7 @@ Feature: RSpec Kata Generation
       """
     And the file "fizz_buzz/Guardfile" should contain:
       """
-      guard 'rspec', :version => 2 do
+      guard 'rspec' do
         watch(%r{^spec/.+_spec\.rb$})
         watch(%r{^lib/(.+)\.rb$})     { |m| "spec/#{m[1]}_spec.rb" }
         watch('spec/spec_helper.rb')  { "spec/" }
