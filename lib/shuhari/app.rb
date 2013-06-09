@@ -37,13 +37,15 @@ module Shuhari
       end
     end
 
-    desc 'empty', 'Restart the Kata with empty mind and project'
-    def empty
-      @name = load_setting(:project_name)
-      @framework = load_setting(:test_framework)
-      clean_project
-      setup_source_paths
-      setup_code
+    if File.exists?('shuhari.yml')
+      desc 'empty', 'Restart the Kata with empty mind and project'
+      def empty
+        @name = load_setting(:project_name)
+        @framework = load_setting(:test_framework)
+        clean_project
+        setup_source_paths
+        setup_code
+      end
     end
 
     protected

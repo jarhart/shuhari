@@ -5,6 +5,20 @@ Feature: Getting Help
     Then the output should contain:
       """
       Commands:
+        shuhari help [COMMAND]  # Describe available commands or one specific command
+        shuhari new [NAME]      # Create a new Kata project
+      """
+
+  Scenario: General help inside a project
+    Given a file named "shuhari.yml" with:
+      """
+      project_name: FizzBuzz
+      test_framework: rspec
+      """
+    When I run `shuhari help`
+    Then the output should contain:
+      """
+      Commands:
         shuhari empty           # Restart the Kata with empty mind and project
         shuhari help [COMMAND]  # Describe available commands or one specific command
         shuhari new [NAME]      # Create a new Kata project
@@ -31,6 +45,11 @@ Feature: Getting Help
       """
 
   Scenario: Help about the "empty" task
+    Given a file named "shuhari.yml" with:
+      """
+      project_name: FizzBuzz
+      test_framework: rspec
+      """
     When I run `shuhari help empty`
     Then the output should contain:
       """
