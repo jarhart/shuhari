@@ -6,38 +6,8 @@ module Shuhari
     include Thor::Actions
     include ProjectGeneration
 
-    desc 'new [NAME]', 'Create a new Kata project'
-
-    method_option :rspec, :type => :boolean, :aliases => '-r',
-      :desc => 'Test using RSpec', :default => true
-
-    method_option :minitest, :type => :boolean, :aliases => '-m',
-      :desc => 'Test using Minitest::Unit'
-
-    method_option :minitest_spec, :type => :boolean, :aliases => '-s',
-      :desc => 'Test using Minitest::Spec'
-
-    method_option :testunit, :type => :boolean, :aliases => '-t',
-      :desc => 'Test using Test::Unit'
-
-    method_option :cucumber, :type => :boolean, :aliases => '-c',
-      :desc => 'Test using Cucumber'
-
-    if Platform.unix?
-      method_option :gemset, :type => :boolean, :aliases => '-g',
-        :desc => 'Create .rvmrc to use a gemset', :default => Platform.rvm?
-    end
-
-    def new(name=nil)
-      @name = name || ask('Project Name:')
-      setup_source_paths
-      inside snake_name, :verbose => true do
-        self.destination_root = '.'
-        create_project
-      end
-    end
-
     if File.exists?('shuhari.yml')
+
       desc 'empty', 'Restart the Kata with empty mind and project'
       def empty
         @name = load_setting(:project_name)
@@ -45,6 +15,39 @@ module Shuhari
         clean_project
         setup_source_paths
         setup_code
+      end
+
+    else
+
+      desc 'new [NAME]', 'Create a new Kata project'
+
+      method_option :rspec, :type => :boolean, :aliases => '-r',
+        :desc => 'Test using RSpec', :default => true
+
+      method_option :minitest, :type => :boolean, :aliases => '-m',
+        :desc => 'Test using Minitest::Unit'
+
+      method_option :minitest_spec, :type => :boolean, :aliases => '-s',
+        :desc => 'Test using Minitest::Spec'
+
+      method_option :testunit, :type => :boolean, :aliases => '-t',
+        :desc => 'Test using Test::Unit'
+
+      method_option :cucumber, :type => :boolean, :aliases => '-c',
+        :desc => 'Test using Cucumber'
+
+      if Platform.unix?
+        method_option :gemset, :type => :boolean, :aliases => '-g',
+          :desc => 'Create .rvmrc to use a gemset', :default => Platform.rvm?
+      end
+
+      def new(name=nil)
+        @name = name || ask('Project Name:')
+        setup_source_paths
+        inside snake_name, :verbose => true do
+          self.destination_root = '.'
+          create_project
+        end
       end
     end
 

@@ -21,7 +21,6 @@ Feature: Getting Help
       Commands:
         shuhari empty           # Restart the Kata with empty mind and project
         shuhari help [COMMAND]  # Describe available commands or one specific command
-        shuhari new [NAME]      # Create a new Kata project
       """
 
   Scenario: Help about the "new" task
