@@ -32,10 +32,10 @@ Feature: Minitest::Spec Kata Generation
       """
     And the file "fizz_buzz/Guardfile" should contain:
       """
-      guard 'minitest' do
-        watch(%r|^spec/(.*)_spec\.rb|)
-        watch(%r|^lib/(.*)\.rb|)            { |m| "spec/#{m[1]}_spec.rb" }
-        watch(%r|^spec/spec_helper\.rb|)    { "spec" }
+      guard :minitest do
+        watch(%r{^spec/(.*)_spec\.rb})
+        watch(%r{^lib/(.+)\.rb})         { |m| "spec/#{m[1]}_spec.rb" }
+        watch(%r{^spec/spec_helper\.rb}) { 'spec' }
       end
       """
     And the file "fizz_buzz/shuhari.yml" should contain:
@@ -53,7 +53,7 @@ Feature: Minitest::Spec Kata Generation
 
       group :development do
         gem 'minitest'
-        gem 'guard-minitest'
+        gem 'guard-minitest', '>= 1.0.0.rc.2'
         gem 'coolline', :require => false
         gem 'growl'
         # gem 'growl_notify'
@@ -72,7 +72,7 @@ Feature: Minitest::Spec Kata Generation
 
       group :development do
         gem 'minitest'
-        gem 'guard-minitest'
+        gem 'guard-minitest', '>= 1.0.0.rc.2'
         gem 'coolline', :require => false
         gem 'libnotify'
         # gem 'ruby_gntp'
@@ -89,7 +89,7 @@ Feature: Minitest::Spec Kata Generation
 
       group :development do
         gem 'minitest'
-        gem 'guard-minitest'
+        gem 'guard-minitest', '>= 1.0.0.rc.2'
         gem 'rb-notifu'
         gem 'win32console'
         # gem 'ruby_gntp'

@@ -2,6 +2,6 @@ source 'https://rubygems.org'
 
 group :development do
   gem 'minitest'
-  gem 'guard-minitest'
+  gem 'guard-minitest', '>= 1.0.0.rc.2'
   <%= platform_gems %>
 end
