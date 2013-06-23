@@ -10,27 +10,23 @@ module Shuhari
       [ "gem 'growl'",
         "# gem 'growl_notify'",
         "# gem 'ruby_gntp'",
-        "gem 'rb-fsevent'",
-        "gem 'shuhari'" ]
+        "gem 'rb-fsevent'" ]
     end
 
     def linux_gems
       unix_gems +
       [ "gem 'libnotify'",
-        "gem 'rb-inotify'",
-        "gem 'shuhari'" ]
+        "gem 'rb-inotify'" ]
     end
 
     def unix_gems
-      [ "gem 'coolline', :require => false",
-        "gem 'shuhari'" ]
+      [ "gem 'coolline', :require => false" ]
     end
 
     def windows_gems
       [ "gem 'rb-notifu'",
         "gem 'win32console'",
-        "gem 'wdm'",
-        "gem 'shuhari'" ]
+        "gem 'wdm'" ]
     end
 
     def platform_gems
