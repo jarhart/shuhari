@@ -21,8 +21,8 @@ module Shuhari
     end
 
     def setup_rspec
-      options = ask_rspec_options
-      create_file '../.rspec', "--#{options.join(" --")}" if options
+      ask_rspec_options
+      create_file '../.rspec', "#{rspec_options}" if rspec_options?
       template 'spec_helper.rb.tt'
       template 'kata_spec.rb.tt', "#{snake_name}_spec.rb"
     end
@@ -57,14 +57,19 @@ module Shuhari
       end
     end
 
+    attr_accessor :rspec_options
+
     def ask_rspec_options
-      options = []
+      @rspec_options = ""
       if yes?("Would you like to add options?")
-        options.push("color") if yes?("Would you like color?")
-        options.push("format=doc") if yes?("Would you like to see documentation?")
-        options.push("backtrace") if yes?("Would you like to see a backtrace?")
+        %w(--color --format=doc --backtrace).each do |opt|
+          @rspec_options << "#{opt} " if yes?("Would you like to add #{opt}?")
+        end
       end
-      options unless options.empty?
+    end
+
+    def rspec_options?
+      !@rspec_options.empty?
     end
   end
 end
