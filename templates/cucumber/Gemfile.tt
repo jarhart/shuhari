@@ -4,5 +4,6 @@ group :development do
   gem 'cucumber'
   gem 'rspec'
   gem 'guard-cucumber'
+  gem 'shuhari'
   <%= platform_gems %>
 end
