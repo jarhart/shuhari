@@ -22,7 +22,7 @@ module Shuhari
 
     def setup_rspec
       options = ask_rspec_options
-      gsub_file '../Guardfile', /(?<=cli\: \")/, "--#{options.join(" --")}" if options
+      create_file '../.rspec', "--#{options.join(" --")}" if options
       template 'spec_helper.rb.tt'
       template 'kata_spec.rb.tt', "#{snake_name}_spec.rb"
     end
