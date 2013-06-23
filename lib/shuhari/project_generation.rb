@@ -21,6 +21,8 @@ module Shuhari
     end
 
     def setup_rspec
+      options = ask_rspec_options
+      gsub_file '../Guardfile', /(?<=cli\: \")/, "--#{options.join(" --")}" if options
       template 'spec_helper.rb.tt'
       template 'kata_spec.rb.tt', "#{snake_name}_spec.rb"
     end
@@ -53,6 +55,16 @@ module Shuhari
       when 'cucumber' then 'features'
       else 'test'
       end
+    end
+
+    def ask_rspec_options
+      options = []
+      if yes?("Would you like to add options?")
+        options.push("color") if yes?("Would you like color?")
+        options.push("format=doc") if yes?("Would you like to see documentation?")
+        options.push("backtrace") if yes?("Would you like to see a backtrace?")
+      end
+      options unless options.empty?
     end
   end
 end
